@@ -1,6 +1,8 @@
 const express = require('express')
+const expressSession = require('express-session')
 const mongoose = require('mongoose')
 const flash = require('connect-flash')
+const connectMongo = require('connect-mongo')
 const expressLayouts = require('express-ejs-layouts')
 const bodyParser = require('body-parser')
 const homepageController = require('./controllers/homepagecontroller')
@@ -9,6 +11,13 @@ const homepageController = require('./controllers/homepagecontroller')
 const app = express()
 const port = process.env.port || 3000
 mongoose.connect('mongodb://localhost:27017/carter', { useNewUrlParser: true })
+const mongoStore = connectMongo(expressSession)
+app.use(expressSession({
+    secret: 'secrt',
+    resave: true,
+    saveUninitialized: true
+}))
+
 app.use(expressLayouts)
 app.set('view engine', 'ejs')
 app.use(express.urlencoded({ extended: false }))

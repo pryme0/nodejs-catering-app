@@ -2,7 +2,6 @@ let alertbtn = document.getElementById('alerttext');
 let alertprompt = document.getElementById('alert-promt');
 const postUserData = (event) => {
     event.preventDefault();
-    console.log('event fired')
     let fullname = document.forms["regform"]["fullname"].value;
     let email = document.forms["regform"]["email"].value;
     let address = document.forms["regform"]["address"].value;
@@ -29,12 +28,43 @@ const postUserData = (event) => {
             })
             .then((res) => res.json())
             .then((data) => {
+                console.log(data)
                 alertbtn.innerHTML = data
                 return alertprompt.style.display = "block"
 
             })
     }
-
-
 }
-let btn = document.getElementById('submit').addEventListener('click', postUserData);
+
+const loginUser = (loginEvent) => {
+        loginEvent.preventDefault();
+        console.log('submit button clicked')
+        let email = document.forms["loginform"]["email"].value;
+        let password = document.forms["loginform"]["password"].value;
+        const userInfo = {
+            email,
+            password
+        }
+        try {
+            fetch('/user/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(userInfo)
+                })
+                .then((res) => res.json())
+                .then((data) => {
+                    if (data == 'match') {
+                        window.location.assign("/user/dashboard")
+                    } else {
+                        alertbtn.innerHTML = data
+                        return alertprompt.style.display = "block"
+                    }
+                })
+        } catch (error) {
+            console.log(error)
+        }
+    }
+    //let btn = document.getElementById('submit').addEventListener('click', postUserData);
+let loginbtn = document.getElementById('login').addEventListener('click', loginUser);
