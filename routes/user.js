@@ -21,7 +21,6 @@ router.post('/login', (req, res) => {
     let { email, password } = req.body
     Users.findOne({ email: email }).then(user => {
         if (user) {
-            console.log(user.email)
             bcrypt.compare(password, user.password).then(resp => {
                 if (resp === true) {
                     req.session.userid = user._id
