@@ -1,0 +1,80 @@
+<body>
+    <div id="container" class="container">
+        <h3 class=" text-center text-uppercase text-secondary">Check Out</h3>
+        <div class="row">
+            <div class="col-md-12 table-responsive" id="tablebody">
+            </div>
+            <br>
+            <div style="margin-top: 70px;" class="row col-md-12">
+                <div class="col-md-4">
+                    <p>
+                        <h4>Sum total</h4>
+                    </p>
+
+                </div>
+                <div class="col-md-3">
+                    <p>
+                        <h4> ₦<span id="Sumtotal"></span></h4>
+                    </p>
+                </div>
+                <br>
+
+
+            </div>
+            <div class="container">
+                <label class="col-form-label-sm label-info" for="deliverAddress"><b>Payment description:</b><span id="paymentdesc">No description </span></label>
+            </div>
+            <div class="container">
+                <label class="col-form-label-sm label-info" for="deliverAddress"><b>Address</b></label>
+                <input id="deliveryAddress" type="text" class="form-control" name="deliveryAddress" placeholder="enter delivery address">
+                <label class="col-form-label-sm label-info" for="state"><b>State</b></label>
+                <input id="state" type="text" class="form-control" name="state" placeholder="enter delivery address">
+                <label class="col-form-label-sm label-info" for="Phone number">Phone number</b></label>
+                <input id="phonenumber" type="text" class="form-control" name="deliveryAddress" placeholder="enter delivery address">
+            </div>
+
+            <div class="row col-md-12">
+
+                <div class="col-md-4">
+                    <button id="paymentButton" style="border-radius: 10px" class="btn btn-primary text-center border-dark ">Pay</button>
+                </div>
+                <div class="col-md-4">
+                    <a href="/"><button style="border-radius: 10px" class="btn btn-primary text-center border-dark ">Continue Shopping</button></a>
+                </div>
+                <br>
+                <br>
+
+
+            </div>
+            <div style="display: none;" id="checkoutAlert" class="btn btn-default">
+                <div id="alert_prompt" class="alert alert-success" style="display:none">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <strong id="alerbtn">Enter details to login</strong>
+                </div>
+                <h5 class="text-danger">Fill form below to login and continue</h5>
+
+                <form id="checkoutLogin" name="checkoutloginform" role="form">
+                    <div class="form-group">
+                        <label class="text-info form-inline">Email</label>
+                        <input type="text" name="email" class="form-control" placeholder="email">
+                    </div>
+                    <div class="form-group">
+                        <label class="text-info form-inline">Password</label>
+                        <input type="password" name="password" class="form-control" placeholder="password">
+                    </div>
+                    <br>
+                    <input id="checklog" type="submit" class="btn btn-info" value="login">
+                </form>
+
+            </div>
+
+        </div>
+
+
+
+
+    </div>
+
+
+
+</body>

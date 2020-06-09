@@ -11,39 +11,72 @@
     <title>Start catering</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="css/business-frontpage.css" rel="stylesheet">
-    <link href="css/main.css" rel="stylesheet">
-    <link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/business-frontpage.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+    <link href="/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 
 <body>
 
     <!-- Navigation -->
-    <nav id="black" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top navhead">
+    <nav id="black" class="navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed-top navhead">
         <div class="container text-black">
             <a class="navbar-brand text-black" href="/">Star catering</a>
             <button class="navbar-toggler text-black" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon text-black"></span>
       </button>
-            <div class="collapse navbar-collapse " id="navbarResponsive">
+            <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Home
+                        <a id="black" class="nav-link text-white" href="/">Home
               <span class="sr-only">(current)</span>
             </a>
                     </li>
+                   
                     <li class="nav-item">
-                        <a id="black" class="nav-link" href="#">About</a>
+                        <a id="white" class="nav-link" href="/user/blog">Blog</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Services</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
-                    </li>
+
+                    <%if(userId === undefined || userId === null){%>
+                        <li class="nav-item ">
+                            <a id="white" class="nav-link  " href="# ">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="white" class="nav-link" href="/user/Contact">Contact</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a id="white" class="nav-link " href="/user/register ">Register</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a id= "login_style" style="color: white;" class="nav-link" href="/user/login ">Login</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a id="white" class="nav-link fa fa-2x fa-shopping-cart text-white " href="/user/checkout">cart<span style="color:white" id='cartCount' class='badge text-white'></span></a>
+                        </li>
+
+                        <% } else {%>
+                            <li class="nav-item">
+                                <a id="white" class="nav-link text-black-5" href="/user/dashboard">Profile</a>
+                            </li>
+                            <li class="nav-item">
+                                <a id="white" class="nav-link" href="/user/Contact">Contact</a>
+                            </li>
+                            <li class="nav-item">
+                                <img id="navPic" class="img-circle profilepic text-black-5" src="">
+                            </li>
+                            <li class="nav-item ">
+                                <a id="white" class="nav-link fa fa-2x fa-shopping-cart text-white " href="/user/checkout">cart<span style="color:white" id='cartCount' class='badge text-white'></span></a>
+                            </li>
+                            <li class="nav-item text-black-5 ">
+                                <a id="logout_button" style="color:white" class="nav-link text-black-5 " href="/user/logout ">Logout</a>
+                            </li>
+                            
+                            <%}%>
+
+
                 </ul>
             </div>
         </div>
@@ -57,49 +90,53 @@
 
 
 
-        </div>
+       
         <!-- /.row -->
 
 
 
 
-        <!-- /.row -->
         <br>
-        <div class="bg">
-            <div class="row">
-                <div class="col-md-4 mb-5">
-                    <h2>Contact Us</h2>
+        <div class="col-md-12" style="padding: 10px; color:white; background-color:#343a40" class="bg ">
+            <div class="row ">
+                <div class="col-md-5 mb-5 ">
                     <hr>
-                    <address>
+<address>
   <strong>Star Catering</strong>
-  <br>opposite police station Ecwa staff street,
-  <br>Jos platue state.
   <br>
+  <br>
+  <h6>Opposite police station Ecwa staff street,Jos plateau state.</h6>
 </address>
-                    <address>
-  <i class="fa fa-phone-square"></i>
+<address>
+  <i class="fa fa-phone-square "></i>
   +234 07066927889 ,+234 07057184814
   <br>
-  <abbr class="fa fa-inbox" title="Email"></abbr>
-  <a href="mailto:#">esthermicheal@gmail.com</a>
+  <abbr class="fa fa-inbox " title="Email "></abbr>
+  <a href="mailto:# "><h6>esthermicheal@gmail.com</h6></a>
 </address>
+                </div>
+                <div class="col-md-6">
+                    <header><h3>Subscibe to our news letter</h3></header>
+                    <input type="text" name="email" id="newsletter" class="form-control" placeholder="enter email">
+                    <br>
+                    <input class="btn btn-info" type="submit" name="subscribe" value="subscibe" id="subscribe">
                 </div>
             </div>
         </div>
         <!-- /.container -->
 
         <!-- Footer -->
-        <footer class="py-5 bg-dark">
-            <div class="container">
-                <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
+        <footer class="py-1 bg-dark ">
+            <div class="container ">
+                <p class="text-center text-white ">Copyright &copy; Prymetech 2020</p>
             </div>
             <!-- /.container -->
         </footer>
 
         <!-- Bootstrap core JavaScript -->
-        <script src="vendor/jquery/jquery.min.js"></script>
-        <script src="vendor/jquery/main.js"></script>
-        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="/vendor/jquery/jquery.min.js "></script>
+        <script src="/vendor/jquery/main.js "></script>
+        <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js "></script>
 
 </body>
 

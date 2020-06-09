@@ -1,25 +1,31 @@
 <body>
-    <div>
-        <div class="container">
-            <div id="alert-promt" class="alert alert-success">
-                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                <strong id="alerttext">Enter details to login</strong>
+    <div class="container login-container">
+        <div class="row">
+            <div class="col-md-6 login-form-2">
+                <div id="alert-promt" class="alert alert-success" style="display:none">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <strong style="display: block;" id="alerttext">Enter details to login</strong>
+                </div>
+                <h3></h3>
+                <form id="login_form" name="loginform" role="form">
+                    <div class="form-group">
+                        <span class="input-group-addon"><i class="fa fa-user fa-2x"></i></span>
+                        <input id="email" type="text" class="form-control" name="email" placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                        <span class="input-group-addon"><i class="fa fa-lock fa-2x"></i></span><input type="password" name="password" placeholder="Password" class="form-control">
+                    </div>
+                    <div class="input-group">
+                        <input type="submit" name="submit" value="Login" class="form-control btn btn-info" id="login">
+                    </div>
+                 
+                </form>
+                <div class="form-group">
+                    <a class="text-info" href="/user/resetpassword/">Forgot Password?</a>
+<br>
+                    <a class="text-info" href="/user/register/">Dont have an account?</a>
+                </div>
             </div>
-            <form id="login_form" name="loginform" role="form">
-                <div class="input-group">
-                    <span class="input-group-addon"><i class="fa fa-user fa-2x"></i></span>
-                    <input id="email" type="text" class="form-control" name="email" placeholder="Email">
-                </div>
-                <br>
-                <div class="input-group">
-                    <span class="input-group-addon"><i class="fa fa-lock fa-2x"></i></span><input type="password" name="password" placeholder="Password" class="form-control">
-                </div>
-                <br>
-                <div class="input-group">
-                    <input type="submit" name="submit" value="Login" class="form-control btn btn-info" id="login">
-                </div>
-            </form>
         </div>
-
     </div>
 </body>

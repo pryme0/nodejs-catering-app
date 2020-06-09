@@ -1,0 +1,61 @@
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <div class="row">
+                <div class="col-md-3">
+                    <img id="profileimage" class="img-responsive dashboardpic" src="">
+                    <div class="form">
+                        <form>
+                        <label class=" label-primary" for="profilepic">Update profilepic</label>
+                            <input class="form-control" type="file" name="profilepic" id="profilepic">
+                            <input type="submit" id="uploadPic" class="form-control btn-info" value="upload">
+                    </form>
+                        </div>
+
+                </div>
+                <div class="col-md-9">
+                    <h2>Dashboard</h2>
+                    <ul class="nav nav-tabs">
+                        <li class="active nav-link"><a data-toggle="tab" href="#home">Activity</a></li>
+                        <li class="nav-link"><a data-toggle="tab" href="#posts">Posts</a></li>
+                        <li id="ordertab" class="nav-link"><a data-toggle="tab" href="#orders">Orders</a></li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div id="home" class="tab-pane fade">
+                            <h3>Activity</h3>
+                            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        </div>
+                        <div id="posts" class="tab-pane fade">
+                            <h3>Posts</h3>
+                            <div id="userpost" class="post-preview blogtext">
+
+
+                            </div>                        </div>
+                        <div id="orders" class="tab-pane fade">
+                            <h3>Orders</h3>
+                            <div>
+                                <table width="100%" height="100%" class=" col-md-12 table-bordered table-striped table-responsive" id="protable">
+                
+                                    <th class="col-sm-1">No</th>
+                                    <th class="col-sm-1">Customer</th>
+                                    <th class="col-sm-1">Payment for</th>
+                                    <th  class="col-sm-1">Amount</th>
+                                    <th  class="col-sm-1">Delivery Address</th>
+                                    <th  class="col-sm-1">state</th>
+                                    <th  class="col-sm-1">Phone Number</th>
+                                    <th  class="col-sm-1">Status</th>
+                                    <th  class="col-sm-1">Payment status</th>
+                                    <th  class="col-sm-1">Order Token</th>
+                                    <th  class="col-sm-1">Date</th>
+                                    <tbody id="tablebody">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

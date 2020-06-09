@@ -1,0 +1,158 @@
+<body>
+
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">
+                Upload Products
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="messages-tab" data-toggle="tab" href="#messages" role="tab" aria-controls="messages" aria-selected="false">View Products</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="settings-tab" data-toggle="tab" href="#orders" role="tab" aria-controls="settings" aria-selected="false">Orders</a>
+        </li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div style="margin: 15px;" class="tab-content">
+        <div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab">this is the home</div>
+        <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+            <div class="col-md-12">
+
+                <div style="display:none;" id="upload-alert" class="alert alert-success">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <strong id="uploadalert">Enter product details below</strong>
+                </div>
+                <div class="form-group">
+                    <form id="productForm" name="productForm">
+                        <label class=" label-primary">Product name</label>
+                        <input type="text" name="producName" placeholder="enter product name" class="form-control">
+                        <label class=" label-primary">Product Description</label>
+                        <input type="text" name="productDescription" placeholder="enter product description" class="form-control">
+                        <label class=" label-primary">Product Price</label>
+                        <input type="text" name="price" placeholder="enter product price" class="form-control">
+                        <label class=" label-primary">Product Image</label>
+                        <input type="file" name="productImage" placeholder="select image" class="form-control">
+                        <input type="submit" class="btn btn-primary" id="productsubmit" name="productsubmit">
+                    </form>
+
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane" id="messages" role="tabpanel" aria-labelledby="messages-tab">
+            <h3>View And Edit Products</h3>
+            <table width="100%" height="100%" class=" table-bordered table-striped table-responsive" id="protable">
+                <th>SN</th>
+                <th>Name</th>
+                <th>Image</th>
+                <th>Description</th>
+                <th>Cost</th>
+                <th>Edit</th>
+                <th>Delete</th>
+                <tbody id="tbody">
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <div class="tab-pane" id="orders" role="tabpanel" aria-labelledby="settings-tab">  <h3>View And Edit Products</h3>
+            <table width="100%" height="100%" class=" col-md-12 table-bordered table-striped table-responsive" id="protable">
+                
+                <th class="col-sm-1">No</th>
+                <th class="col-sm-1">Customer</th>
+                <th class="col-sm-1">Payment for</th>
+                <th  class="col-sm-1">Amount</th>
+                <th  class="col-sm-1">Delivery Address</th>
+                <th  class="col-sm-1">state</th>
+                <th  class="col-sm-1">Phone Number</th>
+                <th  class="col-sm-1">Status</th>
+                <th  class="col-sm-1">Payment status</th>
+                <th  class="col-sm-1">Order Token</th>
+                <th  class="col-sm-1">Date</th>
+                <tbody id="ordertbody">
+                </tbody>
+
+            </table></div>
+    </div>
+
+
+    <div id="updateModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 id="modalheader" class="modal-title text-center">Update Product</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <div style="display:none;" id="alert-promt" class="alert alert-success">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <strong id="updatealert"></strong>
+                        </div>
+                        <form id="produpdForm" name="updateform">
+                            <label class=" label-primary">Product name</label>
+                            <input id="prodname" type="text" name="producName1" placeholder="enter product name" class="form-control">
+                            <label class=" label-primary">Product Description</label>
+                            <input id="proddesc" type="text" name="productDescription1" placeholder="enter product description" class="form-control">
+                            <label class=" label-primary">Product Price</label>
+                            <input id="prodprice" type="text" name="price1" placeholder="enter product price" class="form-control">
+                            <label class=" label-primary">Product Image</label>
+                            <input id="prodimg" type="file" name="productImage1" placeholder="select image" class="form-control">
+                            <input type="submit" class="btn btn-primary" id="updatebtn" name="productsubmit">
+                        </form>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+
+    <div id="deleteModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 id="modalheader" class="modal-title text-center">Delete product</h4>
+                </div>
+                <div class="modal-body">
+
+                    <p class="btn btn-primary">Delete this record?</p>
+                    <div style="display:none;" id="delete-prompt" class="alert alert-success">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <strong id="deleteprompt">Fill the form below to register</strong>
+                    </div>
+                    <div class="btn btn-group">
+                        <btuuon class="btn btn-light btn-success" id="yes">Yes</btuuon>
+                        <btuuon class="btn btn-info" id="no">No</btuuon>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+</body>

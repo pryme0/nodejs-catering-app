@@ -11,20 +11,53 @@ body {
     font-weight: 400px;
 }
 
+.blogtext {
+    color: grey;
+}
+
+.blogtext a {
+    color: grey;
+}
+
+.blogtext p {
+    color: black;
+}
+
+
+.round {
+    border-radius: 10px;
+}
+
 .bg {
     padding-top: 3px;
     padding-bottom: 15px;
     color: white;
+    background-color: black
     height: 100%;
     width: auto;
     background-color: #868e96;
     background-attachment: fixed;
-    background-image: url('/img/cake5.jpg');
     background-size: cover
 }
 
 .nav a {
     color: black;
+}
+
+.profilepic {
+    border-radius: 100px;
+}
+
+.profilepic,
+img {
+    width: 40px;
+    height: 40px;
+}
+
+.dashboardpic {
+    border-radius: 100px;
+    width: 200px;
+    height: 200px;
 }
 
 #heading {
@@ -39,6 +72,74 @@ body {
     color: black;
 }
 
+#white {
+    color: white;
+}
+
+.login-container{
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+.login-form-1{
+    padding: 5%;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+}
+.login-form-1 h3{
+    text-align: center;
+    color: #333;
+}
+.login-form-2{
+    padding: 5%;
+    background: orange;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+}
+.login-form-2 h3{
+    text-align: center;
+    color: #fff;
+}
+.login-container form{
+    padding: 10%;
+}
+.btnSubmit
+{
+    width: 50%;
+    border-radius: 1rem;
+    padding: 1.5%;
+    border: none;
+    cursor: pointer;
+}
+.login-form-1 .btnSubmit{
+    font-weight: 600;
+    color: #fff;
+    background-color: #0062cc;
+}
+.login-form-2 .btnSubmit{
+    font-weight: 600;
+    color: #0062cc;
+    background-color:white;
+}
+.login-form-2 .ForgetPwd{
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+}
+.login-form-1 .ForgetPwd{
+    color: #0062cc;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.wrap {
+    height: 200px;
+    width: 200px;
+    margin: 10px;
+    display: flex;
+  }
+  
+  .wrap span {
+    align-self: flex-end;
+  }
+
 #paddingtop {
     padding-top: 20px;
     padding: 30px 50px 50px 50px;
@@ -46,24 +147,61 @@ body {
 }
 
 .navhead {
-    margin-bottom: 50px;
+    margin-bottom: 1px;
     background: no-repeat center center;
     background-color: #868e96;
     color: black;
     background-attachment: fixed;
     position: relative;
-    background-image: url('/img/cake4.jpg');
+    background-image: url('/img/cakes3.jpg');
     background-size: cover
 }
+@media only screen and (max-width: 767px) {
+   .po {
+      /* The file size of this background image is 93% smaller
+         to improve page load speed on mobile internet connections */
+      background-image: url('/img/home.png');
+    }
+    .po1 {
+        /* The file size of this background image is 93% smaller
+           to improve page load speed on mobile internet connections */
+        background-image: url('/img/pastries.png');
+      }
+  }
 
 .po {
-    margin-bottom: 50px;
+    margin-bottom: 5px;
     background: no-repeat center center;
     height: 100%;
     color: black;
+    width: 100%;
     background-color: #868e96;
     background-attachment: fixed;
-    background-image: url('/img/cake4.jpg');
+    background-image: url('/img/cakes3.jpg');
+    position: relative;
+    background-size: cover
+}
+
+.po2 {
+    margin-bottom: 30px;
+    background: no-repeat center center;
+    height: 350px;
+    color: black;
+    width: 100%;
+    background-color: #868e96;
+    background-attachment: fixed;
+    background-image: url('/img/cakes3.jpg');
+    position: relative;
+    background-size: cover
+}
+.po3 {
+    background: no-repeat center center;
+    height: 200px;
+    color: black;
+    width: 100%;
+    background-color: #868e96;
+    background-attachment: fixed;
+    background-image: url('/img/donuts.png');
     position: relative;
     background-size: cover
 }
@@ -2489,4 +2627,42 @@ textarea {
 
 .contact-info .social-networks ul li a:hover {
     color: #FE980F;
+}
+
+.site-blocks-table {
+    overflow: auto;
+}
+
+.site-blocks-table .product-thumbnail {
+    width: 200px;
+}
+
+.site-blocks-table thead th {
+    padding: 30px;
+    text-align: center;
+    border-width: 1px !important;
+    vertical-align: middle;
+    color: #212529;
+    font-size: 18px;
+}
+
+.site-blocks-table td {
+    padding: 20px;
+    text-align: center;
+    vertical-align: middle;
+    color: #212529;
+}
+
+.site-blocks-table tbody tr:first-child td {
+    border-top: 1px solid #7971ea !important;
+}
+
+.site-block-order-table th {
+    border-top: none !important;
+    border-bottom-width: 1px !important;
+}
+
+.site-block-order-table td,
+.site-block-order-table th {
+    color: #000;
 }
