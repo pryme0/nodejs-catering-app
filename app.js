@@ -21,7 +21,7 @@ dotenv.config({
     //connecting to your database
 require('./config/db')
 
-const port = process.env.port || 4000
+const port = process.env.PORT || 4000
 /*const mongoStore = connectMongo(expressSession)
 app.use(expressSession({
     secret: 'secrt',
