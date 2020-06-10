@@ -72,7 +72,6 @@ exports.renderAdmin = async(req, res) => {
     } else {
         userId = req.header.token
     }
-    //user = await Users.findById(req.session.userid)
     res.render('admin', {
         userId
     })
@@ -86,7 +85,6 @@ exports.renderSucessfulPayment = async(req, res) => {
     } else {
         userId = req.header.token
     }
-    //user = await Users.findById(req.session.userid)
     res.render('paystatus', {
         userId,
     order
@@ -99,7 +97,6 @@ exports.renderPasswordReset = async(req, res) => {
     } else {
         userId = req.header.token
     }
-    //user = await Users.findById(req.session.userid)
     res.render('resetpassword', {
         userId
     })
@@ -110,7 +107,6 @@ exports.renderSetNewPassword = async(req, res) => {
     } else {
         userId = req.header.token
     }
-    //user = await Users.findById(req.session.userid)
     res.render('setnewpassword', {
         userId
     })
@@ -122,7 +118,6 @@ exports.renderContact = async(req, res) => {
     } else {
         userId = req.header.token
     }
-    //user = await Users.findById(req.session.userid)
     res.render('contact', {
         userId
     })
@@ -183,8 +178,8 @@ exports.LoginUser = async(req, res) => {
     }
     try {
         //setting email and password
-        const redirect = req.session.redirectTo
-        delete req.session.redirectTo
+        const redirect = req.headers.redirectTo
+        req.headers.redirectTo = null 
         let { email, password } = req.body
             //checking usser email and password
         const finduser = await Use.findByLoginCredentials(email, password)

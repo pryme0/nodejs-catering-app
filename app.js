@@ -22,12 +22,12 @@ dotenv.config({
 require('./config/db')
 
 const port = process.env.PORT || 4000
-/*const mongoStore = connectMongo(expressSession)
+const mongoStore = connectMongo(expressSession)
 app.use(expressSession({
     secret: 'secrt',
     resave: true,
     saveUninitialized: true
-}))*/
+}))
 
 app.use(cors())
 app.use(fileUpload())

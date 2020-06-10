@@ -2,9 +2,9 @@ const jwt = require('jsonwebtoken')
 const User = require('../schema/user')
 
 const auth = async(req, res, next) => {
-    req.session.redirectTo = req.originalUrl
-    if (req.session.redirectTo === "/user/processpayment/") {
-        req.session.redirectTo = "/user/checkout/"
+    req.headers.redirectTo = req.originalUrl
+    if (req.headers.redirectTo === "/user/processpayment/") {
+        req.headers.redirectTo = "/user/checkout/"
     }
     try {
         const token = req.headers.Authorization.replace('Bearer', '')

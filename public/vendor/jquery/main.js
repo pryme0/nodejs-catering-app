@@ -570,8 +570,11 @@ window.onload = () => {
            })
            .then((resp)=> resp.json())
            .then((data)=>{
+               console.log(data)
                sessionStorage.setItem("user", JSON.stringify(data.user))
-               location.reload()
+               let newUser = sessionStorage.getItem('user')
+               navPic.src = newUser.profilepic
+            location.reload()
            })
 
         }

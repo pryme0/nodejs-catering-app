@@ -19,7 +19,6 @@ exports.createPostPage = async(req, res) => {
     }
     else {
            userId = req.header.token
-               //user = await Users.findById(req.session.userid)
         res.render('createpost', {
             userId
         })
@@ -53,7 +52,6 @@ exports.renderBlog = async(req, res) => {
     } else {
         userId = req.header.token
     }
-    // user = await Users.findById(req.session.userid)
     res.render('blog')
 
 }
