@@ -43,7 +43,6 @@ exports.productUpdate = async(req, res) => {
 exports.deleteProduct = async(req, res) => {
     let id = req.params.id
     id = id.substr(1)
-
     const del = await Products.findById(id).deleteOne()
     if (del) {
         const newpro = await Products.find({})
@@ -72,7 +71,6 @@ exports.registerProducts = async(req, res) => {
                 return res.json('Product already added')
             } else {
                 productImage.mv(path.resolve(__dirname, '../public/products', fullname), (error) => {
-
                     Products.create({
                         ...req.body,
                         productImage: `products/${fullname}`

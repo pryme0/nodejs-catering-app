@@ -2,7 +2,7 @@ const { connect } = require('mongoose');
 /*  || 'mongodb://localhost:27017/carter'*/
 (async() => {
     try {
-        return  await connect(process.env.URL , {
+        return  await connect(process.env.DEV_URL , {
             useNewUrlParser: true,
             useCreateIndex: true,
             useUnifiedTopology: true,

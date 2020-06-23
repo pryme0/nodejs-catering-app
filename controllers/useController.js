@@ -216,34 +216,19 @@ exports.logoutUser = async(req, res) => {
         const token = req.header.token.replace('Bearer', '')
         const decode = jwt.verify(req.header.token, process.env.JWT_SECRET)
         const checkuser = await Use.findById({ _id: decode._id })
-        await checkuser.updateOne({ 'tokens': [{}] })
+        await checkuser.updateOne({ 'tokens.token':{'token':undefined}})
         req.header.token = undefined;
         return res.redirect('/')
     } catch (error) {
         console.log("error" + error)
         res.status(500).json({
-            Status: 'Fail to login',
+            Status: 'Fail to logout',
             error
         });
     }
 };
 
-exports.logoutAllAccount = async(req, res) => {
-    try {
-        req.user.tokens = [];
-        await req.user.updateOne({ token: req.user.token });
-        res.status(200).json({
-            Status: 'Success',
-            message: 'Succcessfully logged out all accounts!'
-        });
-    } catch (error) {
-        console.log("error" + error)
-        res.status(500).json({
-            Status: 'Fail',
-            error
-        });
-    }
-};
+
 
 exports.getProfile = async(req, res) => {
     res.status(200).json({
@@ -254,7 +239,7 @@ exports.getProfile = async(req, res) => {
 
 exports.updateUser = async(req, res) => {
     const updatesProvidedByUser = Object.keys(req.body);
-    const allowedUpdates = ['name', 'contactInfo', 'password'];
+    const allowedUpdates = ['name', 'password','email','profilePic'];
     const isValidOperation = updatesProvidedByUser.every((update) => {
         return allowedUpdates.includes(update);
     });
@@ -293,27 +278,8 @@ exports.deleteUser = async(req, res) => {
     } else {
         return res.json({ status: 'failed' })
     }
-
 }
 
-exports.resetPassword = async(req, res) => {
-    const { email, password } = req.body
-    user = await Use.findOne({ email: email })
-    if (!user) {
-        return res.status(400).json('Email is invalid')
-    } else {
-        let unencrypted = password
-        let newPassword = await bcrypt.hash(unencrypted, 10, async(error, encrypted, next) => {
-            if (!error) {
-                let upddatedDoc = await user.updateOne({ password: encrypted })
-                return res.status(200).json("password updated")
-            } else {
-                console.log(error)
-                next()
-            }
-        })
-    }
-}
 exports.uploadPic = async(req,res)=>{
     const  image  = req.files.profilepic
 let imageName = image.name
@@ -321,7 +287,6 @@ let imageName = image.name
     if(!user){
         return res.json("upload failed")
     }else{
-
         let splited = imageName.split(".")
         let extension = splited[1]
         image.mv(path.resolve(__dirname, "../", "public/profilepic", user.fullname + "." + extension), () => {
@@ -337,9 +302,6 @@ let imageName = image.name
     }
 }
 
-exports.getStatus = async(req,res)=>{
-    return res.json( req.header.token)
-}
 
 exports.sendPasswordResetMail = async(req,res)=>{
     let {email} = req.body
@@ -364,8 +326,7 @@ exports.sendPasswordResetMail = async(req,res)=>{
         let sendMail = await mailer.MailPasswordLink(mailOptions)
             return res.json("check your mail for password reset link")
             }else{
-                console.log(error)
-                return res.json(error)
+                return res.json("check your mail for password reset link")
             }
 
         })
@@ -385,12 +346,10 @@ exports.setNewPassword = async(req,res)=>{
     user.passwordResetExpires =undefined
     await user.save()
     return res.json("password reset sucessful")
-
 }
 
 exports.contactUs =  async(req,res)=>{
 const {name,email,phoneNumber,message} = req.body
-
 if(name !== null || email !== null || phoneNumber !== null || message!== null){
     const contactUs = new Contact(req.body)
     await contactUs.save((err,user)=>{
@@ -403,3 +362,4 @@ if(name !== null || email !== null || phoneNumber !== null || message!== null){
     })
 }
 }
+

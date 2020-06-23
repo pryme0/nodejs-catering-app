@@ -41,8 +41,6 @@ const userSchema = new mongoose.Schema({
     },
     passwordResetToken: String,
     passwordResetExpires: Date
-
-
 })
 
 // User's private data hidding on a fly before sending as a response

@@ -49,6 +49,7 @@ window.onload = () => {
         if(navPic !== null){
             let usr =sessionStorage.getItem("user")
             user = JSON.parse(usr)
+            console.log(user)
             pic = user.profilepic
             navPic.src = pic
         }
