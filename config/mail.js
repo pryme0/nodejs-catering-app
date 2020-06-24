@@ -1,7 +1,8 @@
 const nodemailer = require('nodemailer')
 const jwt = require('jsonwebtoken')
 const User = require('../schema/user')
-
+const mailpass = process.env.EMAIL_PASSWORD
+const userEmail = process.env.USER_EMAIL
 
 
 let transporter = nodemailer.createTransport({
@@ -9,8 +10,8 @@ let transporter = nodemailer.createTransport({
   port:'465',
   secure: 'false',
   auth: {
-     user: 'obochi2@gmail.com',
-     pass: 'nagato10'
+     user: userEmail,//input your email here
+     pass: mailpass//input your email password here
  },
   tls: {
       rejectUnauthorized: false
